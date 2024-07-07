@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pancong Seram - Kue Pancong Lumer Cirebon</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nosifer&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nosifer', cursive;
+            line-height: 1.6;
+            color: #ffffff;
+            background-color: #121212;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        header {
+            background-color: #FF6B6B;
+            color: #000;
+            padding: 20px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-circle {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, 0.1);
+            animation: moveCircles 20s infinite linear;
+        }
+
+        .header-circle-1 {
+            top: -150px;
+            left: -150px;
+        }
+
+        .header-circle-2 {
+            bottom: -150px;
+            right: -150px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        header img {
+            max-width: 150px;
+            height: auto;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        nav {
+            position: relative;
+            z-index: 1;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #000;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #4ECDC4;
+        }
+
+        section {
+            padding: 60px 0;
+            position: relative;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #FF6B6B;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: #FF6B6B;
+            margin: 10px auto 0;
+        }
+
+        .menu-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .menu-item {
+            background-color: #222;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .menu-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .menu-item-content {
+            padding: 20px;
+        }
+
+        .menu-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #FF6B6B;
+        }
+
+        .menu-item p {
+            font-size: 0.9rem;
+            color: #ddd;
+        }
+
+        .toping-section {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .toping-image {
+            max-width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .about {
+            background-color: #4ECDC4;
+            color: #000;
+        }
+
+        .about-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .about-text {
+            flex: 1;
+            padding-right: 30px;
+        }
+
+        .about-image {
+            flex: 1;
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 50%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-circle {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, 0.2);
+            animation: rotateCircles 15s infinite linear;
+        }
+
+        .about-circle-1 {
+            top: -20px;
+            left: -20px;
+        }
+
+        .about-circle-2 {
+            bottom: -20px;
+            right: -20px;
+        }
+
+        .contact {
+            background-color: #fff;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            flex-basis: calc(50% - 15px);
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #FF6B6B;
+        }
+
+        .contact-item p,
+        .contact-item a {
+            font-size: 0.9rem;
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: #FF6B6B;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-circle {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+
+        .footer-circle-1 {
+            top: -100px;
+            left: -100px;
+        }
+
+        .footer-circle-2 {
+            bottom: -100px;
+            right: -100px;
+        }
+
+        @media (max-width: 1024px) {
+            .menu-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .about-text,
+            .about-image {
+                width: 100%;
+                padding: 0;
+                margin-bottom: 30px;
+            }
+
+            .contact-item {
+                flex-basis: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .menu-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes moveCircles {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(200px, 200px);
+            }
+        }
+
+        @keyframes rotateCircles {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-circle header-circle-1"></div>
+        <div class="header-circle header-circle-2"></div>
+        <div class="container">
+            <img src="images/logo.png" alt="Pancong Seram Logo">
+            <h1>Pancong Seram</h1>
+            <nav>
+                <ul>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#tentang">Tentang Kami</a></li>
+                    <li><a href="#kontak">Kontak Kami</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="menu">
+        <div class="container">
+            <h2>Menu Kami</h2>
+            <div class="menu-container">
+                <div class="menu-item">
+                    <img src="images/Pancong_ButoIjoGreentea.jpg" alt="Pancong Buto Ijo Greentea">
+                    <div class="menu-item-content">
+                        <h3>Pancong Buto Ijo Greentea</h3>
+                        <p>Pancong lumer dengan rasa greentea yang segar dan menggoda.</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="images/Pancong_GenderuwoMeses.jpg" alt="Pancong Genderuwo Meses">
+                    <div class="menu-item-content">
+                        <h3>Pancong Genderuwo Meses</h3>
+                        <p>Pancong dengan taburan meses yang melimpah dan manisnya menggoda.</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="images/Pancong_KuburanOreo.jpg" alt="Pancong Kuburan Oreo">
+                    <div class="menu-item-content">
+                        <h3>Pancong Kuburan Oreo</h3>
+                        <p>Pancong lezat dengan hancuran oreo yang renyah dan nikmat.</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="images/Pancong_KuntilanakKeju.jpg" alt="Pancong Kuntilanak Keju">
+                    <div class="menu-item-content">
+                        <h3>Pancong Kuntilanak Keju</h3>
+                        <p>Pancong gurih dengan keju yang meleleh dan menggugah selera.</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="images/Pancong_KuyangTIramisu.jpg" alt="Pancong Kuyang Tiramisu">
+                    <div class="menu-item-content">
+                        <h3>Pancong Kuyang Tiramisu</h3>
+                        <p>Pancong nikmat dengan cita rasa tiramisu yang khas dan elegan.</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="images/Pancong_MumiRegal.jpg" alt="Pancong Mumi Regal">
+                    <div class="menu-item-content">
+                        <h3>Pancong Mumi Regal</h3>
+                        <p>Pancong dengan tambahan biskuit regal yang renyah dan manis.</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="images/Pancong_PocongOriginal.jpg" alt="Pancong Pocong Original">
+                    <div class="menu-item-content">
+                        <h3>Pancong Pocong Original</h3>
+                        <p>Pancong klasik dengan rasa original yang otentik dan memikat.</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="images/Pancong_SimanisMilo.jpg" alt="Pancong Simanis Milo">
+                    <div class="menu-item-content">
+                        <h3>Pancong Simanis Milo</h3>
+                        <p>Pancong manis dengan rasa milo yang lezat dan penuh kenangan.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="toping-section">
+                <h2>Toping Kami</h2>
+                <img src="images/Toping.jpg" alt="Toping" class="toping-image">
+            </div>
+        </div>
+    </section>
+
+    <section id="tentang" class="about">
+        <div class="container">
+            <h2>Tentang Kami</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Pancong Lumer merupakan hasil dari modifikasi adonan kue pukis yang dipanggang menggunakan
+                        cetakan pancong dan berbentuk seperti pancong serta disajikan dalam keadaan setengah matang
+                        ataupun matang.</p>
+                    <h3>Visi</h3>
+                    <p>Menjadi pelopor dalam inovasi makanan ringan tradisional yang kreatif dan unik, serta menjadi
+                        pilihan utama konsumen yang mencari pengalaman kuliner yang berbeda dan memuaskan.</p>
+                    <h3>Misi</h3>
+                    <p>Menghadirkan Pancong Lumer Berkualitas, menyajikan pancong lumer dengan bahan-bahan terbaik dan
+                        proses pembuatan yang higienis untuk memastikan rasa dan kualitas yang konsisten.</p>
+                </div>
+                <div class="about-image">
+                    <img src="images/logo_putih.png" alt="Pancong Seram Logo">
+                    <div class="about-circle about-circle-1"></div>
+                    <div class="about-circle about-circle-2"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Kontak Kami</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>ALAMAT</h3>
+                    <p>Bima Stadion, Sunyaragi, Kec. Kesambi, Kota Cirebon, Jawa Barat 45132</p>
+                </div>
+                <div class="contact-item">
+                    <h3>Whatsapp</h3>
+                    <p><a href="https://wa.me/6287880620500?text=Halo%20min,%20mau%20pesen%20pancong%20dong!"
+                            target="_blank">087880620500</a></p>
+                </div>
+                <div class="contact-item">
+                    <h3>Sosial Media</h3>
+                    <a href="https://www.instagram.com/pancong.seram">
+                        <img src="images/instagram.png" alt="Instagram Icon" style="width: 50px;">
+                    </a>
+                    <a href="https://www.tiktok.com/@pancong.seram">
+                        <img src="images/tiktok.png" alt="TikTok Icon" style="width: 50px;">
+                    </a>
+                </div>
+                <div class="contact-item">
+                    <h3>ORDER ONLINE</h3>
+                    <p>
+                        <a href="https://r.grab.com/g/6-20240701_231403_3075812f7ba057da_MEXMPS-6-C3AHAPWCRAM3CT">
+                            <img src="images/grabfood.png" alt="Grabfood Icon" style="width: 50px;">
+                        </a>
+                        <a href="https://gofood.link/a/CXGCamU">
+                            <img src="images/gofood.png" alt="Gofood Icon" style="width: 50px;">
+                        </a>
+                        <a
+                            href="https://shopee.co.id/universal-link/now-food/shop/21019584?deep_and_deferred=1&shareChannel=copy_link">
+                            <img src="images/shopeefood.png" alt="Shopeefood Icon" style="width: 50px;">
+                        </a>
+                    </p>
+                </div>
+                <div class="contact-item">
+                    <h3>MAPS</h3>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.324934072788!2d108.5339319!3d-6.730152299999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f1d71e77feb9b%3A0xb7e5a8a34c7ed5d4!2sPancong%20Seram!5e0!3m2!1sen!2sid!4v1720129391840!5m2!1sen!2sid"
+                        width="1122" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-circle footer-circle-1"></div>
+        <div class="footer-circle footer-circle-2"></div>
+        <div class="container">
+            <p>&copy; 2023 Pancong Seram. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
